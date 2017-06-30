@@ -17,6 +17,5 @@ class FunctionalProjectService {
                 .toEitherRight { UserNotFoundProjectServiceError(userId) }
                 .right()
                 .map { Repo.getProjectsForUser(userId) }
-
     }
 }

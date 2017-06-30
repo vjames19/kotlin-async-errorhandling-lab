@@ -1,7 +1,7 @@
 package io.github.vjames19.lab.service
 
-import io.github.vjames19.lab.User
 import io.github.vjames19.lab.Repo
+import io.github.vjames19.lab.User
 import io.github.vjames19.lab.immediateFuture
 import org.funktionale.option.getOrElse
 import java.util.concurrent.CompletableFuture
