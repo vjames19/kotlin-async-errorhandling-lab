@@ -93,5 +93,5 @@ inline fun <L, R, L2> Either<L, R>.leftMap(crossinline f: (L) -> L2): Either<L2,
 
 
 fun <L, R1, R2, R> combine(e1: Either<L, R1>, e2: Either<L, R2>, f: (e1: R1, e2: R2) -> R): Either<L, R> {
-    return e1.flatMap { a -> e2.flatMap{ b -> Either.right(f(a, b)) } }
+    return e1.flatMap { a -> e2.flatMap { b -> Either.right(f(a, b)) } }
 }

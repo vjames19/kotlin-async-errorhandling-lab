@@ -19,6 +19,8 @@ class CoroutinesExample {
             val user = userService.get(1).await()
             val projects = projectService.getProjectsForUser(user.id).await()
 
+            // do something with both
+
         }
     }
 
@@ -40,6 +42,8 @@ class CoroutinesExample {
 
             val user = userFuture.await()
             val projects = userFuture.await()
+
+            // do something with both
         }
     }
 
