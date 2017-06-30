@@ -60,7 +60,7 @@ class FunctionalExample {
     fun <T> mapError(error: T): FunctionalExampleError = UnknownFunctionalExampleError
 }
 
-sealed class FunctionalExampleError(message: String? = null, cause: Throwable? = null) : RuntimeException(message, cause)
+sealed class FunctionalExampleError(message: String? = null, cause: Throwable? = null) : Exception(message, cause)
 
 object UnknownFunctionalExampleError : FunctionalExampleError()
 

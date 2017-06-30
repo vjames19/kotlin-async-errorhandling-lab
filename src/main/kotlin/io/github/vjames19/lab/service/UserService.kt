@@ -1,8 +1,8 @@
 package io.github.vjames19.lab.service
 
+import io.github.vjames19.lab.Future
 import io.github.vjames19.lab.Repo
 import io.github.vjames19.lab.User
-import io.github.vjames19.lab.immediateFuture
 import org.funktionale.option.getOrElse
 import java.util.concurrent.CompletableFuture
 
@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture
 class UserService {
 
     @Throws(UserServiceError::class)
-    fun get(id: Long): CompletableFuture<User> = immediateFuture {
+    fun get(id: Long): CompletableFuture<User> = Future {
         Repo.get(id).getOrElse { throw NotFoundUserServiceError(id) }
     }
 }

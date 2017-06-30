@@ -1,8 +1,8 @@
 package io.github.vjames19.lab.service
 
+import io.github.vjames19.lab.Future
 import io.github.vjames19.lab.Project
 import io.github.vjames19.lab.Repo
-import io.github.vjames19.lab.immediateFuture
 import org.funktionale.either.Either
 import org.funktionale.either.toEitherRight
 import java.util.concurrent.CompletableFuture
@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture
  */
 class FunctionalProjectService {
 
-    fun getProjectsForUser(userId: Long): CompletableFuture<Either<ProjectServiceError, List<Project>>> = immediateFuture {
+    fun getProjectsForUser(userId: Long): CompletableFuture<Either<ProjectServiceError, List<Project>>> = Future {
         Repo.get(userId)
                 .toEitherRight { UserNotFoundProjectServiceError(userId) }
                 .right()
