@@ -1,6 +1,6 @@
 package io.github.vjames19.lab.service
 
-import io.github.vjames19.lab.Future
+import io.github.vjames19.futures.jdk8.Future
 import io.github.vjames19.lab.Repo
 import io.github.vjames19.lab.User
 import org.funktionale.either.Either

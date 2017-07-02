@@ -1,5 +1,7 @@
 package io.github.vjames19.lab
 
+import io.github.vjames19.futures.jdk8.flatMap
+import io.github.vjames19.futures.jdk8.map
 import io.github.vjames19.lab.service.FunctionalProjectService
 import io.github.vjames19.lab.service.FunctionalUserService
 import io.github.vjames19.lab.service.ProjectServiceError

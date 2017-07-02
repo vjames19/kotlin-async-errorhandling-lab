@@ -1,5 +1,8 @@
 package io.github.vjames19.lab
 
+import io.github.vjames19.futures.jdk8.flatMap
+import io.github.vjames19.futures.jdk8.map
+import io.github.vjames19.futures.jdk8.recover
 import io.github.vjames19.lab.service.ProjectService
 import io.github.vjames19.lab.service.ProjectServiceError
 import io.github.vjames19.lab.service.UserNotFoundProjectServiceError
