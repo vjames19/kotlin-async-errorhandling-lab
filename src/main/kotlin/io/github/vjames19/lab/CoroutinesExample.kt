@@ -1,12 +1,15 @@
 package io.github.vjames19.lab
 
+import io.github.vjames19.futures.jdk8.fallbackTo
 import io.github.vjames19.futures.jdk8.recover
 import io.github.vjames19.lab.service.ProjectService
 import io.github.vjames19.lab.service.ProjectServiceError
 import io.github.vjames19.lab.service.UserNotFoundProjectServiceError
 import io.github.vjames19.lab.service.UserService
 import kotlinx.coroutines.experimental.future.await
+import kotlinx.coroutines.experimental.future.future
 import kotlinx.coroutines.experimental.runBlocking
+import java.util.concurrent.CompletableFuture
 
 /**
  * Created by victor.reventos on 6/30/17.
@@ -25,14 +28,26 @@ class CoroutinesExample {
         }
     }
 
-    fun errorHandling() {
+    fun errorHandlingWithTryCatch() {
+        runBlocking {
+            val user = userService.get(1).await()
+            val projects = try {
+                projectService.getProjectsForUser(user.id)
+            } catch (e: Exception) {
+                projectFallback(e)
+            }
+
+            // imagine having more calls, that you can recover from. Try-catch becomes unreadable.
+        }
+    }
+
+    fun errorHandlingWithFutures() {
         runBlocking {
             val user = userService.get(1).await()
             val projects = projectService.getProjectsForUser(user.id)
                     .recover { projectFallback(it) }
                     .await()
             // do something with both
-
         }
     }
 
